@@ -12,6 +12,7 @@ func main() {
 		fmt.Printf("Usage of %s:\n", os.Args[0])
 		fmt.Printf("\twords add <word>\n")
 		fmt.Printf("\twords list\n")
+		fmt.Printf("\twords random\n")
 		flag.PrintDefaults()
 	}
 
@@ -30,6 +31,8 @@ func main() {
 		addWord(args)
 	case "list":
 		listWords()
+	case "random":
+		randomWord()
 	default:
 		fmt.Printf("Unknown command %s\n\n", command)
 		flag.Usage()
@@ -50,4 +53,8 @@ func addWord(words []string) {
 // listing process
 func listWords() {
 	ListWords()
+}
+
+func randomWord() {
+	RandomWord()
 }

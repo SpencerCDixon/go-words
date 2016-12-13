@@ -6,8 +6,10 @@ import (
 	"github.com/mitchellh/go-homedir"
 	"io/ioutil"
 	"log"
+	"math/rand"
 	"net/http"
 	"os"
+	"time"
 )
 
 type Word struct {
@@ -77,6 +79,13 @@ func ListWords() {
 	for _, word := range savedWords {
 		word.DisplayDef()
 	}
+}
+
+func RandomWord() {
+	words := getWords()
+	rand.Seed(time.Now().UTC().UnixNano())
+	i := rand.Intn(len(words))
+	words[i].DisplayDef()
 }
 
 func savedWordsPath() string {
