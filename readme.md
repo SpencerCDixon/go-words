@@ -16,4 +16,5 @@ Usage of words:
   words add <word>
   words list
   words random
+  words serve  // web server for saving words
 ```

@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/spencercdixon/words/cli"
 	"github.com/spencercdixon/words/server"
 	"log"
 	"os"
@@ -48,17 +49,17 @@ func addWord(words []string) {
 		log.Fatalln("words: Need a word to add")
 	}
 
-	defs := Fetch(words[0])
-	_, selectedDef := SelectWord(defs)
-	SaveWord(selectedDef)
+	defs := cli.Fetch(words[0])
+	_, selectedDef := cli.SelectWord(defs)
+	cli.SaveWord(selectedDef)
 }
 
-// Wrapper around ListWords in case I ever decide to add flags/options in the
-// listing process
+// Wrapper around ListWords in case I ever decide to add flags/options in the listing process
 func listWords() {
-	ListWords()
+	cli.ListWords()
 }
 
+// Wrapper around ListWords in case I ever decide to add flags/options in the listing process
 func randomWord() {
-	RandomWord()
+	cli.RandomWord()
 }

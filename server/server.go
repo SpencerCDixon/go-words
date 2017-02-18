@@ -3,6 +3,7 @@ package server
 import (
 	"fmt"
 	"github.com/julienschmidt/httprouter"
+	"github.com/spencercdixon/words/cli"
 	"log"
 	"net/http"
 )
