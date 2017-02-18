@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/spencercdixon/words/server"
 	"log"
 	"os"
 )
@@ -13,6 +14,7 @@ func main() {
 		fmt.Printf("\twords add <word>\n")
 		fmt.Printf("\twords list\n")
 		fmt.Printf("\twords random\n")
+		fmt.Printf("\twords serve\n")
 		flag.PrintDefaults()
 	}
 
@@ -33,6 +35,8 @@ func main() {
 		listWords()
 	case "random":
 		randomWord()
+	case "serve":
+		server.Serve()
 	default:
 		fmt.Printf("Unknown command %s\n\n", command)
 		flag.Usage()
