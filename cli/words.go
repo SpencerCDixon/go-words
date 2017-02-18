@@ -81,11 +81,16 @@ func ListWords() {
 	}
 }
 
-func RandomWord() {
+func DisplayRandomWord() {
+	word := RandomWord()
+	word.DisplayDef()
+}
+
+func RandomWord() Word {
 	words := getWords()
 	rand.Seed(time.Now().UTC().UnixNano())
 	i := rand.Intn(len(words))
-	words[i].DisplayDef()
+	return words[i]
 }
 
 func savedWordsPath() string {

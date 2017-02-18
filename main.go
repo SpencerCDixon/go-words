@@ -61,5 +61,5 @@ func listWords() {
 
 // Wrapper around ListWords in case I ever decide to add flags/options in the listing process
 func randomWord() {
-	cli.RandomWord()
+	cli.DisplayRandomWord()
 }
