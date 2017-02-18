@@ -9,19 +9,22 @@ import (
 	"net/http"
 )
 
+func renderJson(w http.ResponseWriter, content interface{}) {
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.WriteHeader(http.StatusOK)
+
+	if err := json.NewEncoder(w).Encode(content); err != nil {
+		panic(err)
+	}
+}
+
 func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	fmt.Fprintf(w, "Welcome. Head to /random to see a random word")
 }
 
 func Random(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	word := cli.RandomWord()
-
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
-
-	if err := json.NewEncoder(w).Encode(word); err != nil {
-		panic(err)
-	}
+	renderJson(w, word)
 }
 
 func Serve() {
